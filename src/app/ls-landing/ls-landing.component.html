@@ -1,0 +1,19 @@
+<div *ngIf="API.loading; else loadData">
+  <ls-landing-rules
+    [tittle]="tittleValues"
+    [values]="typeRules"
+    [valueSelected]="ruleSelected"
+    (changeRule)="changeTypeRule($event)">
+  </ls-landing-rules>
+  <ls-landing-rules
+    *ngIf="rulesValues"
+    [tittle]="tittleRules"
+    [values]="rulesValues"
+    [valueSelected]="valueSelected"
+    (changeRule)="changeValues($event)">
+  </ls-landing-rules>
+  <ls-landing-launches [launches]="launches"></ls-landing-launches>
+  <ng-template #loadData>Loading data waiting a moment ...</ng-template>
+</div>
+
+
